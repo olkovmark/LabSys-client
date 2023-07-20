@@ -1,0 +1,17 @@
+.form {
+  max-width: 350px;
+  display: grid;
+  row-gap: 20px;
+  z-index: 1;
+}
+.logo {
+  max-width: 100%;
+}
+
+.loader {
+  $size: 200px;
+  width: $size;
+  height: $size;
+  background-color: var(--color-primary);
+  color: var(--color-primary);
+}
