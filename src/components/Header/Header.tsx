@@ -6,14 +6,13 @@ import Image from "next/image";
 import logo from "@/assets/images/logo.svg";
 import logoutImg from "@/assets/images/icons/logout.svg";
 import { usePathname } from "next/navigation";
-import { useEffect } from "react";
 
 export default function Header() {
   const router = useRouter();
   const navLinks = navigationsLinks;
   const currentRoute = usePathname();
   const currentRouteIndex = navigationsLinks.findIndex(
-    (v) => v.url === currentRoute
+    (v) => v.url === "/" + currentRoute.split("/")[1]
   );
 
   return (
@@ -57,19 +56,6 @@ export default function Header() {
 }
 
 export const navigationsLinks = [
-  {
-    name: "Analyses",
-    url: "/analyses",
-  },
-  {
-    name: "Patients",
-    url: "/patients",
-  },
-
-  {
-    name: "Settings",
-    url: "/settings",
-  },
   {
     name: "Analyses",
     url: "/analyses",
