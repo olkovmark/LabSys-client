@@ -8,24 +8,21 @@
   box-shadow: 0px 0px 20px 0px orange;
 }
 .nav {
+  position: relative;
   display: flex;
   margin-right: auto;
-  align-self: flex-end;
   padding: 0 10px;
 
   font-size: 20px;
   gap: 10px;
-  width: 100%;
   &_item {
-    padding: 0px 20px;
+    width: 100px;
+    text-align: center;
     padding-top: 10px;
     text-decoration: none;
     color: grey;
   }
   &_active {
-    border-bottom: 2px solid var(--color-primary);
-    border-radius: 10%;
-    box-shadow: none;
     color: black;
   }
 }
@@ -38,4 +35,12 @@
   background-size: cover;
 }
 .logo {
+}
+.line {
+  position: absolute;
+  background-color: orange;
+  width: 100px;
+  height: 2px;
+  bottom: 0;
+  transition: all 0.5s;
 }
