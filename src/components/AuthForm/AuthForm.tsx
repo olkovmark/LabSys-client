@@ -14,8 +14,11 @@ export default function ({ loginF }: any) {
   const [username, setUsername] = useState("olkovmark");
   const [password, setPassword] = useState("12345");
   const [isLoadin, setIsloadin] = useState(false);
-  const isToken = localStorage.getItem("token");
-  if (isToken) return redirect("/analyses");
+  if (typeof window !== "undefined") {
+    const isToken = localStorage.getItem("token");
+    if (isToken) return redirect("/analyses");
+  }
+
   if (isLoadin)
     return (
       <div className={`spinner-grow ${styles.loader}`} role="status"></div>
