@@ -1,26 +1,27 @@
+"use client";
 import Link from "next/link";
 import styles from "./Menu.module.scss";
-export default function Menu() {
+import { usePathname } from "next/navigation";
+export default function Menu({ links }: any) {
+  const currentRoute = usePathname();
+  const currentRouteIndex = links.findIndex((v: any) => v.url === currentRoute);
+
   return (
     <div>
       <ul className={styles.menu}>
-        {setting_links.map((v) => (
-          <li className={styles.menu_item}>
-            <Link href={v.url}>{v.name}</Link>
+        {links.map((v: any, i: number) => (
+          <li key={i} className={styles.menu_item}>
+            <Link
+              className={`${styles.menu_item_link} ${
+                i === currentRouteIndex ? styles.active : ""
+              }`}
+              href={v.url}
+            >
+              {v.name}
+            </Link>
           </li>
         ))}
       </ul>
     </div>
   );
 }
-
-export const setting_links = [
-  {
-    name: "Users",
-    url: "/settings/users",
-  },
-  {
-    name: "Analyses",
-    url: "/settings/analyses",
-  },
-];

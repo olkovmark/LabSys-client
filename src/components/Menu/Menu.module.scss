@@ -1,0 +1,28 @@
+.menu {
+  border-right: 1px solid orange;
+  padding-right: 20px;
+  min-height: 300px;
+}
+
+.menu_item {
+  text-decoration: none;
+  list-style: none;
+  padding: 10px 0;
+  &_link {
+    font-size: 20px;
+    color: grey;
+    text-decoration: none;
+  }
+
+  &::after {
+    content: "";
+    display: block;
+    height: 1px;
+    width: 100%;
+    background-color: gray;
+  }
+}
+
+.active {
+  color: black;
+}
