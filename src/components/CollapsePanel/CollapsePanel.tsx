@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import styles from "./CollapsePanel.module.scss";
+
 export default function CollapsePanel({ onClick, items, children }: any) {
   const [open, setOpen] = useState(false);
   return (
@@ -8,8 +9,8 @@ export default function CollapsePanel({ onClick, items, children }: any) {
       <div
         className={styles.header}
         onClick={() => {
-          onClick(items);
           setOpen(!open);
+          onClick({ items, open: !open });
         }}
       >
         {items.map((item: any, index: number) => (
@@ -18,10 +19,7 @@ export default function CollapsePanel({ onClick, items, children }: any) {
       </div>
       <div className={`${styles.conteiner} ${open ? styles.open : ""}`}>
         <div className={styles.content}>
-          {children}
-          {children}
-          {children}
-          {children}
+          <div className={styles.content_pad}>{children}</div>
         </div>
       </div>
     </div>

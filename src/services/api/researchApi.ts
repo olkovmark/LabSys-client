@@ -1,10 +1,13 @@
 import axios from "axios";
 
-export async function getAnlysisResearches(id: string) {
-  console.log(process.env.serverApi);
-  const res = await axios.get(process.env.serverApi + "/researches", {
-    params: id,
-  });
-  console.log(res);
-  return res;
+export async function getAnalysisResearches(analysisID: string) {
+  console.log("message1");
+  const res = await axios.get(
+    process.env.NEXT_PUBLIC_serverAPI + "/researches",
+    {
+      params: { analysisID },
+    }
+  );
+
+  return res.data;
 }

@@ -13,13 +13,13 @@ export default function ({ loginF }: any) {
   const router = useRouter();
   const [username, setUsername] = useState("olkovmark");
   const [password, setPassword] = useState("12345");
-  const [isLoadin, setIsloadin] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   if (typeof window !== "undefined") {
     const isToken = localStorage.getItem("token");
     if (isToken) return redirect("/analyses");
   }
 
-  if (isLoadin)
+  if (isLoading)
     return (
       <div className={`spinner-grow ${styles.loader}`} role="status"></div>
     );
@@ -50,13 +50,13 @@ export default function ({ loginF }: any) {
   );
 
   async function login() {
-    setIsloadin(true);
+    setIsLoading(true);
     try {
       const res = await getToken(username, password);
       if (res) {
-        localStorage.setItem("token", res?.data.acces_token);
+        localStorage.setItem("token", res?.data.access_token);
       }
-      setIsloadin(false);
+      setIsLoading(false);
     } catch (error) {}
   }
 }

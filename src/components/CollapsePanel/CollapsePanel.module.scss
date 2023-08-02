@@ -15,21 +15,22 @@
   border-radius: 5px;
 }
 .conteiner {
-  overflow: hidden;
-
   border-radius: 10px;
-  height: 0;
-  box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset,
-    rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
-  transition: height 1s;
+
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: all 500ms;
+  overflow: hidden;
 }
 .open {
-  display: block;
-
-  visibility: visible;
-  height: 200px;
+  grid-template-rows: 1fr;
 }
 
+.content_pad {
+  padding: 10px;
+}
 .content {
-  padding: 5px 10px;
+  overflow: hidden;
+  box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset,
+    rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
 }
